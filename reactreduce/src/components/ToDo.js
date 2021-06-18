@@ -1,22 +1,36 @@
-import React from "react";
-import {connect} from "react-redux"
-import { actionCreators } from "../store";
-import {Link} from 'react-router-dom';
+    import React from "react";
 
-function ToDo({text,onBtnClick,id}){
-    return(
-    <li>
-        <Link to={`/${id}`}>
-        {text}<button onClick={onBtnClick}>DEL</button>
-        </Link>
-    </li>
-    )
-}
+    const TodoItem=({todo,onToggle,onRemove})=>{
+        return(
+            <div>
+                <input type="checkbox"/>
+                <span>예제 텍스트</span>
+                <button>삭제</button>
+            </div>
+        );
+    };
 
-function mapDispatchoProps(dispatch,ownProps){
-    return{
-        onBtnClick:()=>dispatch(actionCreators.deleteToDo(ownProps.id))
+    const Todos=({input,todos,onChangeInput,onInsert,onToggle,onRemove})=>{
+        const onSubmit=e=>{
+            e.preventDefalut();
+        };
+
+        return(
+            <div>
+                <form onSubmit={onSubmit}>
+                    <input/>
+                    <button type="submit">등록</button>
+                </form>
+                <div>
+                    <TodoItem/>
+                    <TodoItem/>
+                    <TodoItem/>
+                    <TodoItem/>
+                    <TodoItem/>
+                    <TodoItem/>
+                </div>
+            </div>
+        )
     }
-}
 
-export default connect(null,mapDispatchoProps)(ToDo);
+    export default Todos;
