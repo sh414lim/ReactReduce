@@ -14,3 +14,12 @@ ReactDOM.render(
 <App/>,
 </Provider>,
    document.getElementById("root"));
+
+   //useStore Hooks를 사용하면 컴포넌트 내부에서 리덕스 스토어 객체를 직접 사용할 수 있다.
+   
+
+   // const store=useStore();
+   // store.dispatch({type:'SAMPLE_ACTION'});
+   // store.getStore();
+
+   //useStore 는 컴포넌트에서 정말 어쩌다가 스토어에 접근해야 하는 상황에만 사용해야 한다
